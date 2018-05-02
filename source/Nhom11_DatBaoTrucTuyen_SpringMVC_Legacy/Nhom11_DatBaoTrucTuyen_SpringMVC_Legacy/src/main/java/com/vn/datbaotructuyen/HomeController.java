@@ -1,0 +1,51 @@
+package com.vn.datbaotructuyen;
+
+import java.util.List;
+import java.util.Locale;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.vn.datbaotructuyen.beans.Bao;
+import com.vn.datbaotructuyen.beans.GioBao;
+import com.vn.datbaotructuyen.dao.BaoDAO;
+import com.vn.datbaotructuyen.dao.GioBaoDAO;
+
+/**
+ * Handles requests for the application home page.
+ */
+@Controller
+public class HomeController {
+	@Autowired
+	BaoDAO baodao;
+	GioBaoDAO gbdao;
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView home(Locale locale, Model model) {
+		
+		List<Bao> list =  baodao.getListGioBao();
+		return new ModelAndView("home", "list",list);
+	}
+
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value = "/giobao", method = RequestMethod.GET)
+	public ModelAndView giobao(Locale locale, Model model) {
+		
+		List<GioBao> listgb =  gbdao.getListGioBao();
+		return new ModelAndView("giobao", "listgb",listgb);
+	}
+	
+	
+}
