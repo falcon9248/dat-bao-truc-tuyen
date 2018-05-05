@@ -1,5 +1,6 @@
 package vn.com.daos;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import vn.com.beans.GioBao;
@@ -27,6 +28,13 @@ public class ThanhToanDAO {
 	 */
 	public boolean thanhToan(HoaDon hoadon, List<GioBao> listGioBao){
 		return false;
+	}
+	public BigDecimal TinhTienBao(BigDecimal donGia, int thoiGianDatBao , int soLuong) {
+	
+		BigDecimal thoiGianDatBaoBD = BigDecimal.valueOf(thoiGianDatBao).movePointLeft(2);
+		BigDecimal soLuongBD = BigDecimal.valueOf(soLuong).movePointLeft(2);
+		BigDecimal thanhtien = donGia.multiply(soLuongBD).multiply(thoiGianDatBaoBD) ;
+		return thanhtien;
 	}
 
 }

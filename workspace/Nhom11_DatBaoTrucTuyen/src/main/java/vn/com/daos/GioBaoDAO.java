@@ -1,5 +1,6 @@
 package vn.com.daos;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,4 +23,9 @@ public class GioBaoDAO {
 		
 		return lstgb;
 	}
+	public boolean themGioBao (GioBao gb) {
+		lstgb.add(gb);
+		return true;
+	}
+	
 }

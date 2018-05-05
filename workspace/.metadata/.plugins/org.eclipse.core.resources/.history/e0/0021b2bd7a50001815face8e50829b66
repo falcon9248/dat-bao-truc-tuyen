@@ -1,0 +1,40 @@
+package vn.com.daos;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import vn.com.beans.GioBao;
+import vn.com.beans.HoaDon;
+
+/**
+ * @author PuppyDRyuki
+ * @version 1.0
+ * @created 03-May-2018 23:50:47
+ */
+public class ThanhToanDAO {
+
+	public ThanhToanDAO(){
+
+	}
+
+	public void finalize() throws Throwable {
+
+	}
+
+	/**
+	 * 
+	 * @param hoadon
+	 * @param listGioBao
+	 */
+	public boolean thanhToan(HoaDon hoadon, List<GioBao> listGioBao){
+		return false;
+	}
+	public BigDecimal TinhTienBao(BigDecimal donGia, int thoiGianDatBao , int soLuong) {
+	
+		BigDecimal thoiGianDatBaoBD = BigDecimal.valueOf(thoiGianDatBao).movePointLeft(2);
+		BigDecimal soLuongBD = BigDecimal.valueOf(soLuong).movePointLeft(2);
+		
+		return donGia.multiply(soLuongBD).multiply(thoiGianDatBaoBD) ;
+	}
+
+}

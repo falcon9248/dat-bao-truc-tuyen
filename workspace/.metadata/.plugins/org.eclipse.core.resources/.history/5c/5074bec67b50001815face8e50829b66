@@ -1,0 +1,37 @@
+package vn.com.daos;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import vn.com.beans.GioBao;
+
+
+
+public class GioBaoDAO {
+
+	JdbcTemplate template;
+	List<GioBao> lstgb = new ArrayList<GioBao>();
+	
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+	
+	public List<GioBao> getListGioBao() {
+		
+		return lstgb;
+	}
+	public boolean themGioBao (GioBao gb) {
+		lstgb.add(gb);
+		return true;
+	}
+	public BigDecimal TinhTienBao(BigDecimal donGia, int thoiGianDatBao , int soLuong) {
+		
+		BigDecimal thoiGianDatBaoBD = BigDecimal.valueOf(thoiGianDatBao).movePointLeft(2);
+		BigDecimal soLuongBD = BigDecimal.valueOf(soLuong).movePointLeft(2);
+		BigDecimal thanhtien = donGia.multiply(soLuongBD).multiply(thoiGianDatBaoBD) ;
+		return thanhtien;
+	}
+}
