@@ -20,7 +20,9 @@ public class BaoDAO {
 	public void setTemplate(JdbcTemplate template) {
 		this.template = template;
 	}
+	
 	public List<Bao> getListGioBao() {
+		
 		return template.query("select * from Bao", new RowMapper<Bao>() {
 			public Bao mapRow(ResultSet rs,int row) throws SQLException {
 				Bao b =new Bao();
@@ -34,6 +36,22 @@ public class BaoDAO {
 				return b;
 			}
 		});
-
+	}
+	
+public List<Bao> getListTheLoai(String theloai) {
+		
+		return template.query("select * from Bao where chuKyXuatBan='"+theloai+"'", new RowMapper<Bao>() {
+			public Bao mapRow(ResultSet rs,int row) throws SQLException {
+				Bao b =new Bao();
+					b.setMaBao(rs.getString(1));
+					b.setTenBao(rs.getString(2));
+					b.setChuKyXuatBan(rs.getInt(3));
+					b.setDonGia(rs.getInt(4));
+					b.setMaNhaXuatBan(rs.getString(5));
+					b.setImgBao(rs.getString(6));
+					
+				return b;
+			}
+		});
 	}
 }

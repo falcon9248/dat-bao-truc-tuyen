@@ -59,8 +59,8 @@
 
 				${bao.maBao}<br/>
 				${bao.tenBao}<br/>
-
-				<img src="${s.imgBao}" class='hinh'></img><br />
+				
+				<img src="../${s.imgBao}" class='hinh'></img><br />
 				${bao.chuKyXuatBan}<br/>
 				${bao.maNhaXuatBan}<br/>
 				${bao.donGia} <br />

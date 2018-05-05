@@ -35,7 +35,14 @@ public class HomeController {
 	public ModelAndView home(Locale locale, Model model) {
 		
 		List<Bao> listbao =  baodao.getListGioBao();
-		return new ModelAndView("home", "listbao",listbao);
+		return new ModelAndView("index", "listbao",listbao);
+	}
+	
+	@RequestMapping(value = "index", method = RequestMethod.GET)
+	public ModelAndView index(Locale locale, Model model) {
+		
+		List<Bao> listbao =  baodao.getListGioBao();
+		return new ModelAndView("index", "listbao",listbao);
 	}
 
 	/**
@@ -48,5 +55,31 @@ public class HomeController {
 		return new ModelAndView("giobao", "listgb",listgb);
 	}
 	
+	@RequestMapping(value = "/amthuc", method = RequestMethod.GET)
+	public ModelAndView amthuc(Locale locale, Model model) {
+		
+		List<Bao> listbao =  baodao.getListTheLoai("1");
+		return new ModelAndView("amthuc", "listbao",listbao);
+	}
 	
+	@RequestMapping(value = "/doanhnhan", method = RequestMethod.GET)
+	public ModelAndView doanhnhan(Locale locale, Model model) {
+		
+		List<Bao> listbao =  baodao.getListTheLoai("2");
+		return new ModelAndView("doanhnhan", "listbao",listbao);
+	}
+	
+	@RequestMapping(value = "/thethao", method = RequestMethod.GET)
+	public ModelAndView thethao(Locale locale, Model model) {
+		
+		List<Bao> listbao =  baodao.getListTheLoai("3");
+		return new ModelAndView("thethao", "listbao",listbao);
+	}
+	
+	@RequestMapping(value = "/doisong", method = RequestMethod.GET)
+	public ModelAndView doisong(Locale locale, Model model) {
+		
+		List<Bao> listbao =  baodao.getListTheLoai("4");
+		return new ModelAndView("doisong", "listbao",listbao);
+	}
 }
