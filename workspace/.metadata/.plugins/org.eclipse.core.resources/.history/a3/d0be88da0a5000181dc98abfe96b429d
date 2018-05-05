@@ -1,0 +1,24 @@
+package vn.com.beans;
+
+import java.math.BigDecimal;
+
+/**
+ * @author FALCON
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class Bao {
+
+	private String chiTietBao;
+	private BigDecimal donGia;
+	private String imageBao;
+	private String maBao;
+	private String nhaXuatBan;
+	private String tenBao;
+
+	public Bao(){
+
+	}
+
+
+}

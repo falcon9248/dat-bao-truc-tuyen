@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Sat May 05 12:32:02 ICT 2018
+org.eclipse.jst.jee.server\:Nhom11_DatBaoTrucTuyen=C\:\\Java\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Nhom11_DatBaoTrucTuyen
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\vinhn\\.m2\\repository\\org\\springframework\\spring-web\\5.0.3.RELEASE\\spring-web-5.0.3.RELEASE.jar=C\:\\Java\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Nhom11_DatBaoTrucTuyen\\WEB-INF\\lib\\spring-web-5.0.3.RELEASE.jar

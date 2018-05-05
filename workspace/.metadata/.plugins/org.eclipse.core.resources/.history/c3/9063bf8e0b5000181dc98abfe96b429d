@@ -1,0 +1,28 @@
+package vn.com.beans;
+
+import java.util.Date;
+
+/**
+ * @author FALCON
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class KhachHang {
+
+	private String cmnd;
+	private String diaChi;
+	private String dienThoai;
+	private String maKH;
+	private int maTK;
+	private Date ngaySinh;
+	private String tenKH;
+
+	public KhachHang(){
+
+	}
+
+	public void finalize() throws Throwable {
+
+	}
+
+}

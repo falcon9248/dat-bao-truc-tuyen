@@ -1,0 +1,91 @@
+package vn.com.beans;
+
+import java.util.Date;
+
+/**
+ * @author FALCON
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class KhachHang {
+
+	private String cmnd;
+	private String diaChi;
+	private String dienThoai;
+	private String maKH;
+	private int maTK;
+	private Date ngaySinh;
+	private String tenKH;
+	
+	public KhachHang(String cmnd, String diaChi, String dienThoai, String maKH, int maTK, Date ngaySinh, String tenKH) {
+		super();
+		this.cmnd = cmnd;
+		this.diaChi = diaChi;
+		this.dienThoai = dienThoai;
+		this.maKH = maKH;
+		this.maTK = maTK;
+		this.ngaySinh = ngaySinh;
+		this.tenKH = tenKH;
+	}
+
+	public KhachHang(){
+
+	}
+
+	public String getCmnd() {
+		return cmnd;
+	}
+
+	public void setCmnd(String cmnd) {
+		this.cmnd = cmnd;
+	}
+
+	public String getDiaChi() {
+		return diaChi;
+	}
+
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+
+	public String getDienThoai() {
+		return dienThoai;
+	}
+
+	public void setDienThoai(String dienThoai) {
+		this.dienThoai = dienThoai;
+	}
+
+	public String getMaKH() {
+		return maKH;
+	}
+
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
+	}
+
+	public int getMaTK() {
+		return maTK;
+	}
+
+	public void setMaTK(int maTK) {
+		this.maTK = maTK;
+	}
+
+	public Date getNgaySinh() {
+		return ngaySinh;
+	}
+
+	public void setNgaySinh(Date ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+
+	public String getTenKH() {
+		return tenKH;
+	}
+
+	public void setTenKH(String tenKH) {
+		this.tenKH = tenKH;
+	}
+	
+}

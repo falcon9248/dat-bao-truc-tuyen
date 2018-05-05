@@ -1,0 +1,17 @@
+package vn.com.beans;
+
+import java.math.BigDecimal;
+
+public class Bao {
+
+	private String maBao;
+	private String tenBao;
+	private String AnhBao;
+	private BigDecimal donGia;
+	private String chiTietBao;
+	private String nhaXuatBan;
+	private int theLoai;
+	private int trangThai;
+	
+	
+}

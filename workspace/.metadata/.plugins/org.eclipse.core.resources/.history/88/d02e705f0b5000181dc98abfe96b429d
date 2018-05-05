@@ -1,0 +1,26 @@
+package vn.com.springmvc.beans;
+
+
+/**
+ * @author FALCON
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class HoaDon {
+
+	private String maHD;
+	private String maKH;
+	private Date ngayLapHD;
+	private BigDecimal tongTienHD;
+	private int trangThaiHD;
+	public ChiTietHoaDon m_ChiTietHoaDon;
+
+	public HoaDon(){
+
+	}
+
+	public void finalize() throws Throwable {
+
+	}
+
+}

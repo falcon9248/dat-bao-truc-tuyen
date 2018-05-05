@@ -1,0 +1,26 @@
+package vn.com.springmvc.beans;
+
+
+/**
+ * @author PuppyDRyuki
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class ChiTietHoaDon {
+
+	private String maBao;
+	private String maHD;
+	private int soLuong;
+	private BigDecimal thanhTien;
+	private Date thoiGianDatBao;
+	public Bao m_Bao;
+
+	public ChiTietHoaDon(){
+
+	}
+
+	public void finalize() throws Throwable {
+
+	}
+
+}

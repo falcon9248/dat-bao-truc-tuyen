@@ -1,0 +1,27 @@
+package vn.com.beans;
+
+/**
+ * @author PuppyDRyuki
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class TaiKhoan {
+
+	private int IsAdmin;
+	private int maTK;
+	private String matKhau;
+	private String tenDangNhap;
+
+	public TaiKhoan(){
+
+	}
+
+	public void finalize() throws Throwable {
+
+	}
+
+	public boolean kiemTraHopLe(){
+		return false;
+	}
+
+}

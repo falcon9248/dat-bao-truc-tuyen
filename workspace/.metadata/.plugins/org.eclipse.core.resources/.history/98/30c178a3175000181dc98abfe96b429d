@@ -1,0 +1,77 @@
+package vn.com.beans;
+
+import java.math.BigDecimal;
+
+public class Bao {
+
+	private String maBao;
+	private String tenBao;
+	private String AnhBao;
+	private BigDecimal donGia;
+	private String chiTietBao;
+	private String nhaXuatBan;
+	private int theLoai;
+	private int not null;
+	
+	public Bao(String chiTietBao, BigDecimal donGia, String imageBao, String maBao, String nhaXuatBan, String tenBao) {
+		super();
+		this.chiTietBao = chiTietBao;
+		this.donGia = donGia;
+		this.imageBao = imageBao;
+		this.maBao = maBao;
+		this.nhaXuatBan = nhaXuatBan;
+		this.tenBao = tenBao;
+	}
+
+	public Bao(){
+
+	}
+
+	public String getChiTietBao() {
+		return chiTietBao;
+	}
+
+	public void setChiTietBao(String chiTietBao) {
+		this.chiTietBao = chiTietBao;
+	}
+
+	public BigDecimal getDonGia() {
+		return donGia;
+	}
+
+	public void setDonGia(BigDecimal donGia) {
+		this.donGia = donGia;
+	}
+
+	public String getImageBao() {
+		return imageBao;
+	}
+
+	public void setImageBao(String imageBao) {
+		this.imageBao = imageBao;
+	}
+
+	public String getMaBao() {
+		return maBao;
+	}
+
+	public void setMaBao(String maBao) {
+		this.maBao = maBao;
+	}
+
+	public String getNhaXuatBan() {
+		return nhaXuatBan;
+	}
+
+	public void setNhaXuatBan(String nhaXuatBan) {
+		this.nhaXuatBan = nhaXuatBan;
+	}
+
+	public String getTenBao() {
+		return tenBao;
+	}
+
+	public void setTenBao(String tenBao) {
+		this.tenBao = tenBao;
+	}
+}

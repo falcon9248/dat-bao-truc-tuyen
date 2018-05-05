@@ -1,0 +1,59 @@
+package vn.com.beans;
+
+/**
+ * @author PuppyDRyuki
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class TaiKhoan {
+
+	private int IsAdmin;
+	private int maTK;
+	private String matKhau;
+	private String tenDangNhap;
+	
+	public TaiKhoan(int isAdmin, int maTK, String matKhau, String tenDangNhap) {
+		super();
+		IsAdmin = isAdmin;
+		this.maTK = maTK;
+		this.matKhau = matKhau;
+		this.tenDangNhap = tenDangNhap;
+	}
+
+	public TaiKhoan(){
+
+	}
+
+	public int getIsAdmin() {
+		return IsAdmin;
+	}
+
+	public void setIsAdmin(int isAdmin) {
+		IsAdmin = isAdmin;
+	}
+
+	public int getMaTK() {
+		return maTK;
+	}
+
+	public void setMaTK(int maTK) {
+		this.maTK = maTK;
+	}
+
+	public String getMatKhau() {
+		return matKhau;
+	}
+
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
+	}
+
+	public String getTenDangNhap() {
+		return tenDangNhap;
+	}
+
+	public void setTenDangNhap(String tenDangNhap) {
+		this.tenDangNhap = tenDangNhap;
+	}
+	
+}
