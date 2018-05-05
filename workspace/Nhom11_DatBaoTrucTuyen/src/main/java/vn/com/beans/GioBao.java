@@ -1,19 +1,25 @@
 package vn.com.beans;
-
+import java.math.BigDecimal; 
 /**
  * @author PuppyDRyuki
  * @version 1.0
  * @created 05-May-2018 9:18:31 AM
  */
 public class GioBao {
-
+	
 	private String mabao;
+
 	private String maKhachHang;
+	
 	private int soLuong;
-	private int ThanhTien;
+	
+	private BigDecimal ThanhTien;
+
 	private int thoiGianDatBao;
 	
-	public GioBao(String mabao, String maKhachHang, int soLuong, int thanhTien, int thoiGianDatBao) {
+	
+
+	public GioBao(String mabao, String maKhachHang, int soLuong, BigDecimal thanhTien, int thoiGianDatBao) {
 		super();
 		this.mabao = mabao;
 		this.maKhachHang = maKhachHang;
@@ -50,11 +56,14 @@ public class GioBao {
 		this.soLuong = soLuong;
 	}
 
-	public int getThanhTien() {
+	
+
+	public BigDecimal getThanhTien() {
 		return ThanhTien;
 	}
 
-	public void setThanhTien(int thanhTien) {
+	public void setThanhTien(BigDecimal thanhTien) {
+		
 		ThanhTien = thanhTien;
 	}
 
@@ -66,6 +75,12 @@ public class GioBao {
 		this.thoiGianDatBao = thoiGianDatBao;
 	}
 
-	
+	public BigDecimal TinhTienBao(BigDecimal donGia) {
+		
+		BigDecimal thoiGianDatBaoBD = BigDecimal.valueOf(thoiGianDatBao).movePointLeft(2);
+		BigDecimal soLuongBD = BigDecimal.valueOf(soLuong).movePointLeft(2);
+		BigDecimal thanhtien = donGia.multiply(soLuongBD).multiply(thoiGianDatBaoBD) ;
+		return thanhtien;
+	}
 
 }

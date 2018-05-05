@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -55,5 +56,11 @@ public class BaoDAO {
 			}
 		});
 	}
+
+	public Bao getBaoTheoMa(String maBao) {
+		// TODO Auto-generated method stub
+		String sql = "select * from Bao where MaBao=?";
+		return template.queryForObject(sql, new Object[]{maBao}, new BeanPropertyRowMapper<Bao>(Bao.class));
+	}
 }
-}
+
