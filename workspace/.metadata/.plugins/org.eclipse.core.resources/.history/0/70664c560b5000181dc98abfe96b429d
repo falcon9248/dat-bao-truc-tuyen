@@ -1,0 +1,24 @@
+package vn.com.beans;
+
+/**
+ * @author PuppyDRyuki
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class GioBao {
+
+	private String mabao;
+	private String maKhachHang;
+	private int soLuong;
+	private int ThanhTien;
+	private int thoiGianDatBao;
+
+	public GioBao(){
+
+	}
+
+	public void finalize() throws Throwable {
+
+	}
+
+}

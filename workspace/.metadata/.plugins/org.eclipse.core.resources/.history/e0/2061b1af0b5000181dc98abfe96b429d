@@ -1,0 +1,25 @@
+package vn.com.springmvc.beans;
+
+import vn.com.springmvc.dao.DanhMucDAO;
+
+/**
+ * @author PuppyDRyuki
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class LoaiBao {
+
+	private int maLoaiBao;
+	private String tenLoaiBao;
+	public Bao m_Bao;
+	public DanhMucDAO m_DanhMucDAO;
+
+	public LoaiBao(){
+
+	}
+
+	public void finalize() throws Throwable {
+
+	}
+
+}

@@ -1,0 +1,7 @@
+INDEX VERSION 1.130
+C:\Users\vinhn\Desktop\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2691942792.index
+\Nhom11_DatBaoTrucTuyen\src\main\java
+C:\Users\vinhn\Desktop\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1865851035.index
+\Nhom11_DatBaoTrucTuyen_SpringMVC_Legacy\src\main\java
+C:\Users\vinhn\Documents\GitHub\dat-bao-truc-tuyen\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2691942792.index
+\Nhom11_DatBaoTrucTuyen\src\main\java
