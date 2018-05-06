@@ -76,7 +76,10 @@
 				</c:forEach>
 				
 			</div>
+		
 			<br/>
+		<p>${total}</p>
+						<br />
 			<a href="thanhtoan">Thanh toán >> </a><br/>
 			<a href="index"> Tiếp tục mua sắm</a>
 		</form>

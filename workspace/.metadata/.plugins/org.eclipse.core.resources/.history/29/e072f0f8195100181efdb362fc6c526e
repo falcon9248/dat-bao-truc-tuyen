@@ -1,6 +1,7 @@
 package vn.com.springmvc;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -12,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,23 +59,31 @@ public class HomeController {
 		List<Bao> listbao =  baodao.getListGioBao();
 		return new ModelAndView("index", "listbao",listbao);
 	}
-
+	@RequestMapping(value = "xemchitiet/index", method = RequestMethod.GET)
+	public ModelAndView index(Locale locale, Model model) {
+		
+		List<Bao> listbao =  baodao.getListGioBao();
+		return new ModelAndView("index", "listbao",listbao);
+	}
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/giobao", method = RequestMethod.GET)
-	public ModelAndView giobao(Locale locale, Model model) {
+	@RequestMapping(value = "giobao", method = RequestMethod.GET)
+	public ModelAndView giobao(Locale locale, Model model, HttpSession session) {
+		ModelAndView mav = new ModelAndView("giobao");
+		List<GioBao> listgb =  (List<GioBao>) session.getAttribute("sessiongioBao");
+		mav.addObject("listGioBao", listgb);
 		
-		List<GioBao> listgb =  gbdao.getListGioBao();
-		return new ModelAndView("giobao", "listgb",listgb);
+        return mav;
 	}
-	@RequestMapping(value = "/xemchitiet/{maBao}")
+	@RequestMapping(value = "xemchitiet/{maBao}")
 	public ModelAndView xemChiTiet(@PathVariable String maBao, Model model) {
 		if(!model.containsAttribute("gioBao")) {
 			model.addAttribute("gioBao",new GioBao());
 		}
 		Bao ctbao = baodao.getBaoTheoMa(maBao);
-		bao = ctbao;
+		maBaoHienTai = maBao;
 		return new ModelAndView("chitietbao", "ctbao",ctbao);
 	}
 	/*@RequestMapping(value = "/xemchitiet/themgiobao",  method = RequestMethod.POST)
@@ -93,28 +101,47 @@ public class HomeController {
 		session.setAttribute("listgb", listgb);
 		return "giobao";
 	}*/
-	/*@RequestMapping(value = "giobao", method = RequestMethod.GET)
-	public ModelAndView giobao(HttpSession session) {
-		session.getAttribute("listgb");
-		return new ModelAndView("index", "listbao",listbao);
-	}*/
-	@RequestMapping("/xemchitiet/themgiobao", method = RequestMethod.POST)
-    public ModelAndView themGioBao(@RequestParam int id, HttpSession session) {
- 
+	
+	@RequestMapping(value = "xemchitiet/themgiobao", method = RequestMethod.POST)
+    public ModelAndView themGioBao(@RequestParam int thoiGianDatBao,@RequestParam int soLuong, HttpSession session) {
+		System.out.println(thoiGianDatBao);
+		System.out.println(soLuong);
+		//System.out.println(bao.getDonGia());
         ModelAndView mav = new ModelAndView("giobao");
-        Book book = bookDao.get(id);
-        Cart cart = new Cart();
-        List<Cart> list = (List<Cart>) session.getAttribute("cart");
-        if (list == null) {
-            list = new ArrayList<Cart>();
+        Bao bao = baodao.getBaoTheoMa(maBaoHienTai);
+        GioBao gb = new GioBao();
+        List<GioBao> listgb =  (List<GioBao>) session.getAttribute("sessiongioBao");
+        //List<Cart> list = (List<Cart>) session.getAttribute("cart");
+        if (listgb == null) {
+        	listgb = new ArrayList<GioBao>();
         }
-        if (book != null) {
-            cart.ToCart(book);
-            BigDecimal total = addToCart(list, cart);
+        if (gb != null) {
+        	gb.themGioHang(bao, maKH, soLuong, thoiGianDatBao);
+            BigDecimal tinhTienBao = gb.TinhTienBao(bao.getDonGia());
+            BigDecimal total = addToCart(listgb, gb);
+            System.out.println("tong tien"+total);
+            System.out.println("tong tien"+tinhTienBao);
             mav.addObject("total", total);
-            session.setAttribute("cart", list);
+            session.setAttribute("sessiongioBao", listgb);
         }
-        mav.addObject("listCart", list);
+        mav.addObject("listGioBao", listgb);
         return mav;
+    }
+
+private BigDecimal addToCart(List<GioBao> listgb, GioBao giobao) {
+        BigDecimal total = new BigDecimal(0);
+        boolean isExit = false;
+        for (GioBao c : listgb) {
+            if (c.equals(giobao)) {
+                c.setSoLuong(c.getSoLuong() + 1);
+                isExit = true;
+            }
+            total = total.add(c.getThanhTien().multiply(new BigDecimal(c.getSoLuong())));
+        }
+        if (isExit == false) {
+        	listgb.add(giobao);
+            total = total.add(giobao.getThanhTien().multiply(new BigDecimal(giobao.getSoLuong())));
+        }
+        return total;
     }
 }

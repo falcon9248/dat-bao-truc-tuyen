@@ -59,7 +59,13 @@ public class HomeController {
 		List<Bao> listbao =  baodao.getListGioBao();
 		return new ModelAndView("index", "listbao",listbao);
 	}
-
+	@RequestMapping(value = "xemchitiet/index", method = RequestMethod.GET)
+	public ModelAndView xemchitietindex(Locale locale, Model model) {
+		
+		List<Bao> listbao =  baodao.getListGioBao();
+		return new ModelAndView("index", "listbao",listbao);
+	}
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -111,9 +117,10 @@ public class HomeController {
         }
         if (gb != null) {
         	gb.themGioHang(bao, maKH, soLuong, thoiGianDatBao);
-            BigDecimal total = addToCart(listgb, gb);
-            //BigDecimal tinhTienBao = gb.TinhTienBao(bao.getDonGia());
+            BigDecimal tinhTienBao = gb.TinhTienBao(bao.getDonGia());
+            BigDecimal total = tinhtongTien(listgb, gb);
             System.out.println("tong tien"+total);
+            System.out.println("tong tien"+tinhTienBao);
             mav.addObject("total", total);
             session.setAttribute("sessiongioBao", listgb);
         }
@@ -121,7 +128,7 @@ public class HomeController {
         return mav;
     }
 
-private BigDecimal addToCart(List<GioBao> listgb, GioBao giobao) {
+private BigDecimal tinhtongTien(List<GioBao> listgb, GioBao giobao) {
         BigDecimal total = new BigDecimal(0);
         boolean isExit = false;
         for (GioBao c : listgb) {
