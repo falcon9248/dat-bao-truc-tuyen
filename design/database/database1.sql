@@ -37,7 +37,7 @@ create table  KhachHang
 
 create table HoaDon
 (
-	MaHD nvarchar(50) primary key not null,
+	MaHD int IDENTITY primary key not null,
 	MaKH nvarchar(50) not null,
 	NgayLapHD datetime not null,
 	TongTienHD money not null,
@@ -59,7 +59,7 @@ create table Bao
 )
 
 create table ChiTietHoaDon(
-	MaHD nvarchar(50) not null,
+	MaHD int not null,
 	MaBao nvarchar(50) not null,
 	SoLuong int,
 	ThanhTien money,
