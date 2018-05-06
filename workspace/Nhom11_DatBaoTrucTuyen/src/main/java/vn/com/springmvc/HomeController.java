@@ -1,10 +1,7 @@
 package vn.com.springmvc;
 
 import java.math.BigDecimal;
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> design
 import java.util.List;
 import java.util.Locale;
 
@@ -13,16 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-=======
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
->>>>>>> design
 import org.springframework.web.servlet.ModelAndView;
 
 import vn.com.beans.Bao;
@@ -43,155 +29,125 @@ import vn.com.daos.ThanhToanDAO;
  * Handles requests for the application home page.
  */
 @Controller
-<<<<<<< HEAD
-=======
+
 @Scope("session")
->>>>>>> design
+
 public class HomeController {
-	
+
 	@Autowired
 	BaoDAO baodao;
-	GioBaoDAO gbdao=new GioBaoDAO();
-<<<<<<< HEAD
-	ThanhToanDAO ttdao;
-	String maKH = "KH0001";
-	Bao bao = new Bao();
-=======
+	GioBaoDAO gbdao = new GioBaoDAO();
 	@Autowired
 	GioBao giobao;
-	
+
 	ThanhToanDAO ttdao;
 	String maKH = "KH0001";
 	String maBaoHienTai = null;
->>>>>>> design
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, Model model) {
-		
-		List<Bao> listbao =  baodao.getListGioBao();
-		return new ModelAndView("index", "listbao",listbao);
+
+		List<Bao> listbao = baodao.getListGioBao();
+		return new ModelAndView("index", "listbao", listbao);
 	}
-	
+
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public ModelAndView index(Locale locale, Model model) {
-		
-		List<Bao> listbao =  baodao.getListGioBao();
-		return new ModelAndView("index", "listbao",listbao);
-	}
-<<<<<<< HEAD
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/giobao", method = RequestMethod.GET)
-	public ModelAndView giobao(Locale locale, Model model) {
-		
-		List<GioBao> listgb =  gbdao.getListGioBao();
-		return new ModelAndView("giobao", "listgb",listgb);
+		List<Bao> listbao = baodao.getListGioBao();
+		return new ModelAndView("index", "listbao", listbao);
 	}
-	@RequestMapping(value = "/xemchitiet/{maBao}")
-=======
+
 	@RequestMapping(value = "xemchitiet/index", method = RequestMethod.GET)
 	public ModelAndView xemchitietindex(Locale locale, Model model) {
-		
-		List<Bao> listbao =  baodao.getListGioBao();
-		return new ModelAndView("index", "listbao",listbao);
+
+		List<Bao> listbao = baodao.getListGioBao();
+		return new ModelAndView("index", "listbao", listbao);
 	}
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "giobao", method = RequestMethod.GET)
 	public ModelAndView giobao(Locale locale, Model model, HttpSession session) {
 		ModelAndView mav = new ModelAndView("giobao");
-		List<GioBao> listgb =  (List<GioBao>) session.getAttribute("sessiongioBao");
+		List<GioBao> listgb = (List<GioBao>) session.getAttribute("sessiongioBao");
 		mav.addObject("listGioBao", listgb);
-		
-        return mav;
+
+		return mav;
 	}
+
 	@RequestMapping(value = "xemchitiet/{maBao}")
->>>>>>> design
+
 	public ModelAndView xemChiTiet(@PathVariable String maBao, Model model) {
-		if(!model.containsAttribute("gioBao")) {
-			model.addAttribute("gioBao",new GioBao());
+		if (!model.containsAttribute("gioBao")) {
+			model.addAttribute("gioBao", new GioBao());
 		}
 		Bao ctbao = baodao.getBaoTheoMa(maBao);
-<<<<<<< HEAD
-		bao = ctbao;
-		return new ModelAndView("chitietbao", "ctbao",ctbao);
-	}
-	@RequestMapping(value = "/xemchitiet/themgiobao",  method = RequestMethod.POST)
-=======
 		maBaoHienTai = maBao;
-		return new ModelAndView("chitietbao", "ctbao",ctbao);
+		return new ModelAndView("chitietbao", "ctbao", ctbao);
 	}
-	/*@RequestMapping(value = "/xemchitiet/themgiobao",  method = RequestMethod.POST)
->>>>>>> design
-	public String themGioBao(@ModelAttribute("gioBao")  GioBao gioBao,HttpSession session) {
-		System.out.println(gioBao.getThoiGianDatBao());
-		System.out.println(gioBao.getSoLuong());
-		System.out.println(bao.getDonGia());
-		//BigDecimal tinhTienBao = ttdao.TinhTienBao(bao.getDonGia(), gioBao.getThoiGianDatBao(), gioBao.getSoLuong());
-		//GioBao gb = new GioBao(bao.getMaBao(),maKH, gioBao.getSoLuong(), tinhTienBao, gioBao.getThoiGianDatBao());
-		BigDecimal tinhTienBao = gioBao.TinhTienBao(bao.getDonGia());
-		gioBao.setThanhTien(tinhTienBao);
-		GioBao gb = new GioBao(bao.getMaBao(),maKH, gioBao.getSoLuong(), gioBao.getThanhTien(), gioBao.getThoiGianDatBao());
-		gbdao.themGioBao(gb);
-		List<GioBao> listgb =  gbdao.getListGioBao();
-		session.setAttribute("listgb", listgb);
-<<<<<<< HEAD
-		return "redirect:/";
-	}
-	
-=======
-		return "giobao";
-	}*/
-	
+	/*
+	 * @RequestMapping(value = "/xemchitiet/themgiobao", method =
+	 * RequestMethod.POST) public String themGioBao(@ModelAttribute("gioBao") GioBao
+	 * gioBao,HttpSession session) { System.out.println(gioBao.getThoiGianDatBao());
+	 * System.out.println(gioBao.getSoLuong()); System.out.println(bao.getDonGia());
+	 * //BigDecimal tinhTienBao = ttdao.TinhTienBao(bao.getDonGia(),
+	 * gioBao.getThoiGianDatBao(), gioBao.getSoLuong()); //GioBao gb = new
+	 * GioBao(bao.getMaBao(),maKH, gioBao.getSoLuong(), tinhTienBao,
+	 * gioBao.getThoiGianDatBao()); BigDecimal tinhTienBao =
+	 * gioBao.TinhTienBao(bao.getDonGia()); gioBao.setThanhTien(tinhTienBao); GioBao
+	 * gb = new GioBao(bao.getMaBao(),maKH, gioBao.getSoLuong(),
+	 * gioBao.getThanhTien(), gioBao.getThoiGianDatBao()); gbdao.themGioBao(gb);
+	 * List<GioBao> listgb = gbdao.getListGioBao(); session.setAttribute("listgb",
+	 * listgb); return "giobao"; }
+	 */
+
 	@RequestMapping(value = "xemchitiet/themgiobao", method = RequestMethod.POST)
-    public ModelAndView themGioBao(@RequestParam int thoiGianDatBao,@RequestParam int soLuong, HttpSession session) {
+	public ModelAndView themGioBao(@RequestParam int thoiGianDatBao, @RequestParam int soLuong, HttpSession session) {
 		System.out.println(thoiGianDatBao);
 		System.out.println(soLuong);
-		//System.out.println(bao.getDonGia());
-        ModelAndView mav = new ModelAndView("giobao");
-        Bao bao = baodao.getBaoTheoMa(maBaoHienTai);
-        GioBao gb = new GioBao();
-        List<GioBao> listgb =  (List<GioBao>) session.getAttribute("sessiongioBao");
-        //List<Cart> list = (List<Cart>) session.getAttribute("cart");
-        if (listgb == null) {
-        	listgb = new ArrayList<GioBao>();
-        }
-        if (gb != null) {
-        	gb.themGioHang(bao, maKH, soLuong, thoiGianDatBao);
-            BigDecimal tinhTienBao = gb.TinhTienBao(bao.getDonGia());
-            BigDecimal total = tinhtongTien(listgb, gb);
-            System.out.println("tong tien"+total);
-            System.out.println("tong tien"+tinhTienBao);
-            mav.addObject("total", total);
-            session.setAttribute("sessiongioBao", listgb);
-        }
-        mav.addObject("listGioBao", listgb);
-        return mav;
-    }
+		// System.out.println(bao.getDonGia());
+		ModelAndView mav = new ModelAndView("giobao");
+		Bao bao = baodao.getBaoTheoMa(maBaoHienTai);
+		GioBao gb = new GioBao();
+		List<GioBao> listgb = (List<GioBao>) session.getAttribute("sessiongioBao");
+		// List<Cart> list = (List<Cart>) session.getAttribute("cart");
+		if (listgb == null) {
+			listgb = new ArrayList<GioBao>();
+		}
+		if (gb != null) {
+			gb.themGioHang(bao, maKH, soLuong, thoiGianDatBao);
+			BigDecimal tinhTienBao = gb.TinhTienBao(bao.getDonGia());
+			BigDecimal total = tinhtongTien(listgb, gb);
+			System.out.println("tong tien" + total);
+			System.out.println("tong tien" + tinhTienBao);
+			mav.addObject("total", total);
+			session.setAttribute("sessiongioBao", listgb);
+		}
+		mav.addObject("listGioBao", listgb);
+		return mav;
+	}
 
-private BigDecimal tinhtongTien(List<GioBao> listgb, GioBao giobao) {
-        BigDecimal total = new BigDecimal(0);
-        boolean isExit = false;
-        for (GioBao c : listgb) {
-            if (c.equals(giobao)) {
-                c.setSoLuong(c.getSoLuong() + 1);
-                isExit = true;
-            }
-            total = total.add(c.getThanhTien().multiply(new BigDecimal(c.getSoLuong())));
-        }
-        if (isExit == false) {
-        	listgb.add(giobao);
-            total = total.add(giobao.getThanhTien().multiply(new BigDecimal(giobao.getSoLuong())));
-        }
-        return total;
-    }
->>>>>>> design
+	private BigDecimal tinhtongTien(List<GioBao> listgb, GioBao giobao) {
+		BigDecimal total = new BigDecimal(0);
+		boolean isExit = false;
+		for (GioBao c : listgb) {
+			if (c.equals(giobao)) {
+				c.setSoLuong(c.getSoLuong() + 1);
+				isExit = true;
+			}
+			total = total.add(c.getThanhTien().multiply(new BigDecimal(c.getSoLuong())));
+		}
+		if (isExit == false) {
+			listgb.add(giobao);
+			total = total.add(giobao.getThanhTien().multiply(new BigDecimal(giobao.getSoLuong())));
+		}
+		return total;
+	}
+
 }

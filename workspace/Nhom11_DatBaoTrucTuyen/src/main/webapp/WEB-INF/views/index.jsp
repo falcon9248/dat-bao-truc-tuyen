@@ -20,11 +20,7 @@
     	<ul>
         	<li><a  href="#">Đăng nhập</a></li>
             <li><a  href="#">Tên người dùng</a></li>
-<<<<<<< HEAD
-            <li><a  href="#">Giỏ báo</a></li>
-=======
             <li><a  href="giobao">Giỏ báo</a></li>
->>>>>>> design
         </ul>
     </div>		
 </div>
@@ -42,11 +38,7 @@
 <div class="clear"></div>
 <!-- nav -->
 <div id="nav">
-<<<<<<< HEAD
-	<a  href="/">Trang chủ</a>
-=======
 	<a  href="index">Trang chủ</a>
->>>>>>> design
 	<a  href="amthuc">Ẩm thực</a>
 	<a  href="doanhnhan">Doanh nhân</a>
 	<a  href="thethao">Thể thao</a>
