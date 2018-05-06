@@ -26,7 +26,7 @@ create table TaiKhoan
 
 create table  KhachHang
 (
-	MaKH nvarchar(50) primary key not null,
+	MaKH int IDENTITY primary key not null,
 	TenKH nvarchar(100) not null,
 	DienThoai nvarchar(20) not null,
 	DiaChi nvarchar(200) not null,
@@ -37,12 +37,12 @@ create table  KhachHang
 
 create table HoaDon
 (
-	MaHD nvarchar(50) primary key not null,
-	MaKH nvarchar(50) not null,
+	MaHD int IDENTITY primary key not null,
+	MaKH int not null,
 	NgayLapHD datetime not null,
 	TongTienHD money not null,
 	TrangThaiHD int,
-	MaNguoiDuyet nvarchar(50),
+	MaNguoiDuyet int,
 	foreign key(MaKH) references KhachHang(MaKH)
 )
 
@@ -59,7 +59,7 @@ create table Bao
 )
 
 create table ChiTietHoaDon(
-	MaHD nvarchar(50) not null,
+	MaHD int not null,
 	MaBao nvarchar(50) not null,
 	SoLuong int,
 	ThanhTien money,
@@ -73,9 +73,9 @@ insert into TaiKhoan values(N'taikhoan1', N'123456', 0)
 insert into TaiKhoan values(N'taikhoan2', N'123456', 0)
 insert into TaiKhoan values(N'taikhoan3', N'123456', 0)
 
-insert into KhachHang values(N'KH0001', N'Nguyễn Văn A', N'0932864812', N'Quận 8', 12/05/1995, N'123456789', 1)
-insert into KhachHang values(N'KH0002', N'Nguyễn Văn B', N'0942864486', N'Quận 8', 05/09/1995, N'129845789', 2)
-insert into KhachHang values(N'KH0003', N'Nguyễn Văn C', N'0932954812', N'Quận 8', 03/03/1995, N'846856789', 3)
+insert into KhachHang values(N'Nguyễn Văn A', N'0932864812', N'Quận 8', 12/05/1995, N'123456789', 1)
+insert into KhachHang values(N'Nguyễn Văn B', N'0942864486', N'Quận 8', 05/09/1995, N'129845789', 2)
+insert into KhachHang values(N'Nguyễn Văn C', N'0932954812', N'Quận 8', 03/03/1995, N'846856789', 3)
 
 insert into Bao values(N'bao001', N'Ẩm thực Việt Nam', N'images/amthuc-pic-1.jpg', 20000, N'Chi tiet nd 1', N'Nhà xuất bản A', 1, 1)
 insert into Bao values(N'bao002', N'Món ngon Việt Nam', N'images/amthuc-pic-2.jpg', 10000, N'Chi tiet nd 2', N'Nhà xuất bản B', 1, 1)
