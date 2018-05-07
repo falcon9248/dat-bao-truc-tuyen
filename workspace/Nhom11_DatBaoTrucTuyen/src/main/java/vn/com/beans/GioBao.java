@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 public class GioBao {
 
-	private String mabao;
+	private Bao bao;
 
 	private String maKhachHang;
 
@@ -23,26 +23,36 @@ public class GioBao {
 
 	private int thoiGianDatBao;
 
-	public GioBao(String mabao, String maKhachHang, int soLuong, BigDecimal thanhTien, int thoiGianDatBao) {
-		super();
-		this.mabao = mabao;
-		this.maKhachHang = maKhachHang;
-		this.soLuong = soLuong;
-		thanhTien = thanhTien;
-		this.thoiGianDatBao = thoiGianDatBao;
-	}
+	
 
 	public GioBao() {
 
 	}
 
-	public String getMabao() {
-		return mabao;
+	
+
+	public GioBao(Bao bao, String maKhachHang, int soLuong, BigDecimal thanhTien, int thoiGianDatBao) {
+		super();
+		this.bao = bao;
+		this.maKhachHang = maKhachHang;
+		this.soLuong = soLuong;
+		this.thanhTien = thanhTien;
+		this.thoiGianDatBao = thoiGianDatBao;
 	}
 
-	public void setMabao(String mabao) {
-		this.mabao = mabao;
+
+
+	public Bao getBao() {
+		return bao;
 	}
+
+
+
+	public void setBao(Bao bao) {
+		this.bao = bao;
+	}
+
+
 
 	public String getMaKhachHang() {
 		return maKhachHang;
@@ -89,7 +99,7 @@ public class GioBao {
 	}
 
 	public void themGioHang(Bao bao, String maKhachHang, int soLuong, int thoiGianDatBao) {
-		this.mabao = bao.getMaBao();
+		this.bao = bao;
 		this.maKhachHang = maKhachHang;
 		this.soLuong = soLuong;
 		this.thoiGianDatBao = thoiGianDatBao;
@@ -98,7 +108,7 @@ public class GioBao {
 
 	@Override
 	public boolean equals(Object obj) {
-		return this.getMabao() == ((GioBao) obj).getMabao();
+		return this.getBao().getMaBao() == ((GioBao) obj).getBao().getMaBao();
 	}
 
 }

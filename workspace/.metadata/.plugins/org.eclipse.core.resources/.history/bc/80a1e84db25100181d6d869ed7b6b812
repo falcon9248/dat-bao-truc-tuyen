@@ -1,0 +1,24 @@
+<div id="header">
+		<!-- nav top -->
+		<div>
+			<div id="h-top-right">
+				<ul>
+					<li><a href="#">Đăng nhập</a></li>
+					<li><a href="#">Tên người dùng</a></li>
+					<li><a href="giobao">Giỏ báo</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="clear"></div>
+		<!-- header hinh -->
+		<div id="h-bot">
+			<div id="h-bot-left">
+				<img src="<c:url value="/resources/images/logo.jpg" />" width="150"
+					height="150" alt="logo" />
+			</div>
+			<div id="h-bot-right">
+				<img src="<c:url value="/resources/images/hinhnen.jpg"/>"
+					width="857" height="150" alt="" />
+			</div>
+		</div>
+	</div>

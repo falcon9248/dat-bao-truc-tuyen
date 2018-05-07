@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="header.jsp"%>
+<div class="clear"></div>
 	<form action="save" method="post">
 	<table>
 	<tr>
@@ -24,5 +26,7 @@
 	</tr>
 	</table>
 	</form>
+	<div class="clear"></div>
+	<%@ include file = "footer.jsp" %>
 </body>
 </html>

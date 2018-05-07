@@ -2,28 +2,6 @@
 <section name="Workbench">
 	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
-<<<<<<< HEAD
-=======
-	<section name="MavenProjectWizardArtifactPage">
-		<list key="groupId">
-		</list>
-		<list key="name">
-		</list>
-		<list key="artifactId">
-		</list>
-		<list key="projectNameTemplate">
-			<item value="[artifactId]"/>
-			<item value="[artifactId]-TRUNK"/>
-			<item value="[artifactId]-[version]"/>
-			<item value="[groupId].[artifactId]"/>
-			<item value="[groupId].[artifactId]-[version]"/>
-			<item value="[name]"/>
-		</list>
-		<list key="version">
-			<item value="0.0.1-SNAPSHOT"/>
-		</list>
-	</section>
->>>>>>> design
 	<section name="org.eclipse.m2e.core.pom.overview">
 		<list key="ciManagementUrl">
 		</list>
@@ -34,53 +12,4 @@
 		<list key="issueManagementUrl">
 		</list>
 	</section>
-<<<<<<< HEAD
-=======
-	<section name="MavenProjectWizardArchetypePage">
-		<item value="All Catalogs" key="catalog"/>
-		<list key="projectNameTemplate">
-			<item value="[artifactId]"/>
-			<item value="[artifactId]-TRUNK"/>
-			<item value="[artifactId]-[version]"/>
-			<item value="[groupId].[artifactId]"/>
-			<item value="[groupId].[artifactId]-[version]"/>
-			<item value="[name]"/>
-		</list>
-	</section>
-	<section name="MavenProjectWizardLocationPage">
-		<list key="location">
-			<item value="D:\Users\PuppyDRyuki\OneDrive\Documents\Java Web NC\BT\DemoShoppingCart"/>
-		</list>
-		<list key="projectNameTemplate">
-			<item value="[artifactId]"/>
-			<item value="[artifactId]-TRUNK"/>
-			<item value="[artifactId]-[version]"/>
-			<item value="[groupId].[artifactId]"/>
-			<item value="[groupId].[artifactId]-[version]"/>
-			<item value="[name]"/>
-		</list>
-	</section>
-	<section name="Maven2ProjectWizardArchifactPage">
-		<list key="package">
-			<item value="org.o7planning.SpringMVCAnnotationShoppingCart"/>
-		</list>
-		<list key="groupId">
-			<item value="org.o7planning"/>
-		</list>
-		<list key="artifactId">
-			<item value="SpringMVCAnnotationShoppingCart"/>
-		</list>
-		<list key="projectNameTemplate">
-			<item value="[artifactId]"/>
-			<item value="[artifactId]-TRUNK"/>
-			<item value="[artifactId]-[version]"/>
-			<item value="[groupId].[artifactId]"/>
-			<item value="[groupId].[artifactId]-[version]"/>
-			<item value="[name]"/>
-		</list>
-		<list key="version">
-			<item value="0.0.1-SNAPSHOT"/>
-		</list>
-	</section>
->>>>>>> design
 </section>

@@ -14,43 +14,7 @@
 	href="<c:url value="/resources/css/index.css" />">
 </head>
 <body>
-	<div id="header">
-		<!-- nav top -->
-		<div>
-			<div id="h-top-right">
-				<ul>
-					<li><a href="#">Đăng nhập</a></li>
-					<li><a href="#">Tên người dùng</a></li>
-					<li><a href="#">Giỏ báo</a></li>
-				</ul>
-			</div>
-		</div>
-		<div id="clear"></div>
-		<!-- header hinh -->
-		<div id="h-bot">
-			<div id="h-bot-left">
-				<img src="<c:url value="/resources/images/logo.jpg" />" width="150"
-					height="150" alt="logo" />
-			</div>
-			<div id="h-bot-right">
-				<img src="<c:url value="/resources/images/hinhnen.jpg"/>"
-					width="857" height="150" alt="" />
-			</div>
-		</div>
-	</div>
-	<div class="clear"></div>
-	<!-- nav -->
-	<div id="nav">
-		<a href="index">Trang chủ</a> <a href="amthuc">Ẩm thực</a> <a
-			href="doanhnhan">Doanh nhân</a> <a href="thethao">Thể thao</a> <a
-			href="doisong">Đời sống</a>
-		<div id="search-container">
-			<form action="#">
-				<input type="text" placeholder="Tìm kiếm ..." name="timKiem" />
-				<button type="submit" id="btntimKiem">Tìm kiếm</button>
-			</form>
-		</div>
-	</div>
+	<%@ include file="header.jsp"%>
 	<div class="clear"></div>
 
 	<div id="container">
@@ -62,37 +26,33 @@
 				<c:forEach items="${listGioBao}" var="giobao">
 					<div class="grid-item">
 						<%-- <img src="<c:url value="/resources/${giobao.anhBao}"/>" alt=""/><br/>--%>
-						<p>${giobao.mabao}</p>
+						<p>${giobao.bao.tenBao}</p>
 						<br />
+						<p>${giobao.bao.donGia}</p>
+						<br />
+						<img src="<c:url value="/resources/${giobao.bao.anhBao}"/>" alt="" /><br />
 						<p>${giobao.maKhachHang}</p>
 						<br />
-						<p>${giobao.soLuong}</p>
+						Số Lượng: <p>${giobao.soLuong}</p>
 						<br />
-						<p>${giobao.thanhTien}</p>
+						Thời gian đặt: <p>${giobao.thoiGianDatBao}</p>
 						<br />
-						<p>${giobao.thoiGianDatBao}</p>
+						Thành tiền: <p>${giobao.thanhTien}</p>
 						<br />
+						
 					</div>
 				</c:forEach>
-				
+
 			</div>
-		
-			<br/>
-		<p>${total}</p>
-						<br />
-			<a href="thanhtoan">Thanh toán >> </a><br/>
-			<a href="index"> Tiếp tục mua sắm</a>
+
+			<br />
+			<p>${total}</p>
+			<br /> <a href="thanhtoan">Thanh toán >> </a><br /> <a href="index">
+				Tiếp tục mua sắm</a>
 		</form>
 	</div>
 
 	<div class="clear"></div>
-	<div id="footer">
-		<p>
-			Bạn sẽ có trong tay những ấn phẩm mà bạn yêu thích<br />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ngay khi liên lạc với chúng tôi.
-		</p>
-		<p>Công ty hy vọng sẽ là địa chỉ đáng tin cậy của quý bạn đọc!</p>
-	</div>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>
