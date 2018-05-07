@@ -27,7 +27,6 @@ import vn.com.daos.GioBaoDAO;
  * @created 03-May-2018 23:47:18
  */
 @Controller
-@Scope("session")
 public class DatBaoController {
 	String maKH = "KH0001";
 	public GioBaoDAO m_GioBaoDAO;
@@ -71,7 +70,7 @@ public class DatBaoController {
 			System.out.println("tong tien" + total);
 			System.out.println("tong tien" + tinhTienBao);
 			mav.addObject("total", total);
-			session.setAttribute("sessiongioBao", listgb);
+			session.setAttribute("sessionGioBao", listgb);
 		}
 		mav.addObject("listGioBao", listgb);
 		return mav;
