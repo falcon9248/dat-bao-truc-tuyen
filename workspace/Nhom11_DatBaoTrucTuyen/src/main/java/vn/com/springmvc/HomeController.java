@@ -29,9 +29,6 @@ import vn.com.daos.ThanhToanDAO;
  * Handles requests for the application home page.
  */
 @Controller
-
-@Scope("session")
-
 public class HomeController {
 
 	@Autowired
@@ -41,8 +38,8 @@ public class HomeController {
 	GioBao giobao;
 
 	ThanhToanDAO ttdao;
-	String maKH = "KH0001";
-	String maBaoHienTai = null;
+	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	/**
@@ -81,16 +78,7 @@ public class HomeController {
 		return mav;
 	}
 
-	@RequestMapping(value = "xemchitiet/{maBao}")
-
-	public ModelAndView xemChiTiet(@PathVariable String maBao, Model model) {
-		if (!model.containsAttribute("gioBao")) {
-			model.addAttribute("gioBao", new GioBao());
-		}
-		Bao ctbao = baodao.getBaoTheoMa(maBao);
-		maBaoHienTai = maBao;
-		return new ModelAndView("chitietbao", "ctbao", ctbao);
-	}
+	
 	/*
 	 * @RequestMapping(value = "/xemchitiet/themgiobao", method =
 	 * RequestMethod.POST) public String themGioBao(@ModelAttribute("gioBao") GioBao
@@ -107,47 +95,6 @@ public class HomeController {
 	 * listgb); return "giobao"; }
 	 */
 
-	@RequestMapping(value = "xemchitiet/themgiobao", method = RequestMethod.POST)
-	public ModelAndView themGioBao(@RequestParam int thoiGianDatBao, @RequestParam int soLuong, HttpSession session) {
-		System.out.println(thoiGianDatBao);
-		System.out.println(soLuong);
-		// System.out.println(bao.getDonGia());
-		ModelAndView mav = new ModelAndView("giobao");
-		Bao bao = baodao.getBaoTheoMa(maBaoHienTai);
-		GioBao gb = new GioBao();
-		List<GioBao> listgb = (List<GioBao>) session.getAttribute("sessiongioBao");
-		// List<Cart> list = (List<Cart>) session.getAttribute("cart");
-		if (listgb == null) {
-			listgb = new ArrayList<GioBao>();
-		}
-		if (gb != null) {
-			gb.themGioHang(bao, maKH, soLuong, thoiGianDatBao);
-			BigDecimal tinhTienBao = gb.TinhTienBao(bao.getDonGia());
-			BigDecimal total = tinhtongTien(listgb, gb);
-			System.out.println("tong tien" + total);
-			System.out.println("tong tien" + tinhTienBao);
-			mav.addObject("total", total);
-			session.setAttribute("sessiongioBao", listgb);
-		}
-		mav.addObject("listGioBao", listgb);
-		return mav;
-	}
-
-	private BigDecimal tinhtongTien(List<GioBao> listgb, GioBao giobao) {
-		BigDecimal total = new BigDecimal(0);
-		boolean isExit = false;
-		for (GioBao c : listgb) {
-			if (c.equals(giobao)) {
-				c.setSoLuong(c.getSoLuong() + 1);
-				isExit = true;
-			}
-			total = total.add(c.getThanhTien().multiply(new BigDecimal(c.getSoLuong())));
-		}
-		if (isExit == false) {
-			listgb.add(giobao);
-			total = total.add(giobao.getThanhTien().multiply(new BigDecimal(giobao.getSoLuong())));
-		}
-		return total;
-	}
+	
 
 }
