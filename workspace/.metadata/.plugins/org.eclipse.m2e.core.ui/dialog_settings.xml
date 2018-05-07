@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
+<<<<<<< HEAD
+=======
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
 		</list>
@@ -21,6 +23,7 @@
 			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
+>>>>>>> design
 	<section name="org.eclipse.m2e.core.pom.overview">
 		<list key="ciManagementUrl">
 		</list>
@@ -31,6 +34,8 @@
 		<list key="issueManagementUrl">
 		</list>
 	</section>
+<<<<<<< HEAD
+=======
 	<section name="MavenProjectWizardArchetypePage">
 		<item value="All Catalogs" key="catalog"/>
 		<list key="projectNameTemplate">
@@ -77,4 +82,5 @@
 			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
+>>>>>>> design
 </section>

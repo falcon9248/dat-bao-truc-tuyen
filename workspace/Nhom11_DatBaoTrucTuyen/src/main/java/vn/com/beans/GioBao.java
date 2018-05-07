@@ -1,8 +1,10 @@
 package vn.com.beans;
+
 import java.math.BigDecimal;
 
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component; 
+import org.springframework.stereotype.Component;
+
 /**
  * @author PuppyDRyuki
  * @version 1.0
@@ -12,18 +14,15 @@ import org.springframework.stereotype.Component;
 public class GioBao {
 
 	private String mabao;
-	
+
 	private String maKhachHang;
-	
+
 	private int soLuong;
-	
+
 	private BigDecimal thanhTien;
 
 	private int thoiGianDatBao;
-	
-	
 
-	
 	public GioBao(String mabao, String maKhachHang, int soLuong, BigDecimal thanhTien, int thoiGianDatBao) {
 		super();
 		this.mabao = mabao;
@@ -33,8 +32,7 @@ public class GioBao {
 		this.thoiGianDatBao = thoiGianDatBao;
 	}
 
-
-	public GioBao(){
+	public GioBao() {
 
 	}
 
@@ -62,15 +60,16 @@ public class GioBao {
 		this.soLuong = soLuong;
 	}
 
-	
-
 	public BigDecimal getThanhTien() {
+
 		return thanhTien;
+
 	}
 
 	public void setThanhTien(BigDecimal thanhTien) {
-		
+
 		thanhTien = thanhTien;
+
 	}
 
 	public int getThoiGianDatBao() {
@@ -82,21 +81,24 @@ public class GioBao {
 	}
 
 	public BigDecimal TinhTienBao(BigDecimal donGia) {
-		
+
 		BigDecimal thoiGianDatBaoBD = BigDecimal.valueOf(thoiGianDatBao);
 		BigDecimal soLuongBD = BigDecimal.valueOf(soLuong);
-		BigDecimal thanhtien = donGia.multiply(soLuongBD).multiply(thoiGianDatBaoBD) ;
+		BigDecimal thanhtien = donGia.multiply(soLuongBD).multiply(thoiGianDatBaoBD);
 		return thanhtien;
 	}
+
 	public void themGioHang(Bao bao, String maKhachHang, int soLuong, int thoiGianDatBao) {
 		this.mabao = bao.getMaBao();
 		this.maKhachHang = maKhachHang;
 		this.soLuong = soLuong;
 		this.thoiGianDatBao = thoiGianDatBao;
 		thanhTien = TinhTienBao(bao.getDonGia());
-    }
+	}
+
 	@Override
-    public boolean equals(Object obj) {
-        return this.getMabao() == ((GioBao) obj).getMabao();
-    }
+	public boolean equals(Object obj) {
+		return this.getMabao() == ((GioBao) obj).getMabao();
+	}
+
 }

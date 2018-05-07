@@ -1,0 +1,29 @@
+package vn.com.springmvc.beans;
+
+import vn.com.springmvc.dao.GioBaoDAO;
+
+/**
+ * @author PuppyDRyuki
+ * @version 1.0
+ * @created 05-May-2018 9:18:31 AM
+ */
+public class GioBao {
+
+	private String mabao;
+	private String maKhachHang;
+	private int soLuong;
+	private int ThanhTien;
+	private int thoiGianDatBao;
+	public Bao m_Bao;
+	public KhachHang m_KhachHang;
+	public GioBaoDAO m_GioBaoDAO;
+
+	public GioBao(){
+
+	}
+
+	public void finalize() throws Throwable {
+
+	}
+
+}
