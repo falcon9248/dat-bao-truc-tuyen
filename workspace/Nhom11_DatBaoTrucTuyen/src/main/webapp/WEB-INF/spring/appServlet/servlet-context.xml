@@ -57,7 +57,7 @@
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<beans:property name="basename" value="/i18n/message" />
 	</beans:bean>
-	<beans:bean id="mabao" class="vn.com.beans.GioBao" scope="session">     
+	<beans:bean id="bao" class="vn.com.beans.GioBao" scope="sessionGioBao">     
       <aop:scoped-proxy/>
   </beans:bean>
 </beans:beans>

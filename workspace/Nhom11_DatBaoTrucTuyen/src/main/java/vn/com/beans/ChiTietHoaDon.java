@@ -10,19 +10,25 @@ import java.util.Date;
  */
 public class ChiTietHoaDon {
 
-	private String maHD;
+	private int maHD;
 	private String maBao;
 	private int soLuong;
 	private BigDecimal thanhTien;
 	private Date thoiGianDatBao;
 	
-	public ChiTietHoaDon(String maBao, String maHD, int soLuong, BigDecimal thanhTien, Date thoiGianDatBao) {
+	
+
+	public ChiTietHoaDon(int maHD, String maBao, int soLuong, BigDecimal thanhTien, Date thoiGianDatBao) {
 		super();
-		this.maBao = maBao;
 		this.maHD = maHD;
+		this.maBao = maBao;
 		this.soLuong = soLuong;
 		this.thanhTien = thanhTien;
 		this.thoiGianDatBao = thoiGianDatBao;
+	}
+
+	public void setMaHD(int maHD) {
+		this.maHD = maHD;
 	}
 
 	public ChiTietHoaDon(){
@@ -35,14 +41,6 @@ public class ChiTietHoaDon {
 
 	public void setMaBao(String maBao) {
 		this.maBao = maBao;
-	}
-
-	public String getMaHD() {
-		return maHD;
-	}
-
-	public void setMaHD(String maHD) {
-		this.maHD = maHD;
 	}
 
 	public int getSoLuong() {
