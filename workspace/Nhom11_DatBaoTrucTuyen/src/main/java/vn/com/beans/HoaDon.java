@@ -10,13 +10,13 @@ import java.util.Date;
  */
 public class HoaDon {
 
-	private String maHD;
+	private int maHD;
 	private String maKH;
 	private Date ngayLapHD;
 	private BigDecimal tongTienHD;
 	private int trangThaiHD;
 	private String maNguoiDuyet;
-	public HoaDon(String maHD, String maKH, Date ngayLapHD, BigDecimal tongTienHD, int trangThaiHD,
+	public HoaDon(int maHD, String maKH, Date ngayLapHD, BigDecimal tongTienHD, int trangThaiHD,
 			String maNguoiDuyet) {
 		super();
 		this.maHD = maHD;
@@ -29,10 +29,10 @@ public class HoaDon {
 	public HoaDon() {
 		super();
 	}
-	public String getMaHD() {
+	public int getMaHD() {
 		return maHD;
 	}
-	public void setMaHD(String maHD) {
+	public void setMaHD(int maHD) {
 		this.maHD = maHD;
 	}
 	public String getMaKH() {

@@ -8,14 +8,14 @@ import java.util.Date;
  * @created 05-May-2018 9:18:31 AM
  */
 public class KhachHang {
-	private String maKH;
+	private int maKH;
 	private String tenKH;
 	private String dienThoai;
 	private String diaChi;
 	private Date ngaySinh;
 	private String cmnd;
 	private int maTK;
-	public KhachHang(String maKH, String tenKH, String dienThoai, String diaChi, Date ngaySinh, String cmnd, int maTK) {
+	public KhachHang(int maKH, String tenKH, String dienThoai, String diaChi, Date ngaySinh, String cmnd, int maTK) {
 		super();
 		this.maKH = maKH;
 		this.tenKH = tenKH;
@@ -28,10 +28,10 @@ public class KhachHang {
 	public KhachHang() {
 		super();
 	}
-	public String getMaKH() {
+	public int getMaKH() {
 		return maKH;
 	}
-	public void setMaKH(String maKH) {
+	public void setMaKH(int maKH) {
 		this.maKH = maKH;
 	}
 	public String getTenKH() {

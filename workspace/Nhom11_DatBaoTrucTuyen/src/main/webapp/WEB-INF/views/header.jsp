@@ -19,8 +19,19 @@
 		<div>
 			<div id="h-top-right">
 				<ul>
-					<li><a href="#">Đăng nhập</a></li>
-					<li><a href="#">Tên người dùng</a></li>
+				
+					<c:choose>
+						<c:when test="${not login}">
+        					<li><a href="login">Đăng nhập</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="logout">Đăng Xuất</a></li>
+							<li><a href="#">${taiKhoan.tenDangNhap}</a></li>
+							
+						</c:otherwise>
+					</c:choose>
+					
+					
 					<li><a href="giobao">Giỏ báo</a></li>
 				</ul>
 			</div>
