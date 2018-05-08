@@ -11,11 +11,13 @@ import java.util.Date;
 public class HoaDon {
 
 	private int maHD;
+
 	private int maKH;
 	private Date ngayLapHD;
 	private BigDecimal tongTienHD;
 	private int trangThaiHD;
 	private String maNguoiDuyet;
+
 
 	public void setMaHD(int maHD) {
 		this.maHD = maHD;
