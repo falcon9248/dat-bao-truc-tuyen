@@ -63,7 +63,7 @@ create table ChiTietHoaDon(
 	MaBao nvarchar(50) not null,
 	SoLuong int,
 	ThanhTien money,
-	ThoiGianDatBao datetime,
+	ThoiGianDatBao int,
 	foreign key (MaHD) references HoaDon(MaHD),
 	foreign key (MaBao) references Bao(MaBao),
 	primary key (MaHD, MaBao)

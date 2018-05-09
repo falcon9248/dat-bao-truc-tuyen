@@ -7,10 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,7 +44,7 @@ public class DatBaoController {
 		if (!model.containsAttribute("gioBao")) {
 			model.addAttribute("gioBao", new GioBao());
 		}
-		Bao ctbao = baodao.getBaoTheoMa(maBao);
+		Bao ctbao = baodao.getNameById(maBao);
 		maBaoHienTai = maBao;
 		return new ModelAndView("chitietbao", "ctbao", ctbao);
 	}
@@ -56,7 +54,7 @@ public class DatBaoController {
 		System.out.println(soLuong);
 		// System.out.println(bao.getDonGia());
 		ModelAndView mav = new ModelAndView("giobao");
-		Bao bao = baodao.getBaoTheoMa(maBaoHienTai);
+		Bao bao = baodao.getNameById(maBaoHienTai);
 		GioBao gb = new GioBao();
 		List<GioBao> listgb = (List<GioBao>) session.getAttribute("sessiongioBao");
 		// List<Cart> list = (List<Cart>) session.getAttribute("cart");

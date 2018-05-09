@@ -20,11 +20,17 @@
 	<div class="grid-container">
 		<c:forEach  items="${listbao}" var="bao">
 			<div class="grid-item">
-        	<img src="<c:url value="/resources/${bao.imgBao}"/>" width="200" height="200" alt=""/><br/>
-            <p>${bao.tenBao}</p>
-            <p><u>Giá:</u> ${bao.donGia}</p>
-            <a  href="xemchitiet.html">Xem chi tiết</a>
-        	</div>
+						<img src="<c:url value="/resources/${bao.anhBao}"/>" alt="" /><br />
+						<p>${bao.tenBao}</p>
+						<p>
+							<u>Giá:</u> ${bao.donGia}
+						</p>
+						<c:url var="myURL" value="xemchitiet">
+							<c:param name="maBao" value="${bao.maBao}" />
+						</c:url>
+						<a href="${myURL}">Xem chi tiết</a>
+						<%-- <a href="xemchitiet/${bao.maBao}">Xem chi tiết</a> --%>
+					</div>
 		</c:forEach>
           
     </div>

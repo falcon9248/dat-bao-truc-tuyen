@@ -14,11 +14,9 @@ public class ChiTietHoaDon {
 	private String maBao;
 	private int soLuong;
 	private BigDecimal thanhTien;
-	private Date thoiGianDatBao;
-	
-	
+	private int thoiGianDatBao;
 
-	public ChiTietHoaDon(int maHD, String maBao, int soLuong, BigDecimal thanhTien, Date thoiGianDatBao) {
+	public ChiTietHoaDon(int maHD, String maBao, int soLuong, BigDecimal thanhTien, int thoiGianDatBao) {
 		super();
 		this.maHD = maHD;
 		this.maBao = maBao;
@@ -59,12 +57,14 @@ public class ChiTietHoaDon {
 		this.thanhTien = thanhTien;
 	}
 
-	public Date getThoiGianDatBao() {
+	public int getThoiGianDatBao() {
 		return thoiGianDatBao;
 	}
 
-	public void setThoiGianDatBao(Date thoiGianDatBao) {
+	public void setThoiGianDatBao(int thoiGianDatBao) {
 		this.thoiGianDatBao = thoiGianDatBao;
 	}
+
+	
 	
 }

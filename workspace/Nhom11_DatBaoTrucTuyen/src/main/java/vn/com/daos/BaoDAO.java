@@ -12,11 +12,9 @@ import vn.com.beans.Bao;
 
 public class BaoDAO {
 	
-<<<<<<< HEAD
-	JdbcTemplate template;
-=======
+
 	private JdbcTemplate template;
->>>>>>> chinhsua
+
 
 	public JdbcTemplate getTemplate() {
 		return template;
@@ -43,15 +41,11 @@ public class BaoDAO {
 		});
 	}
 	
-<<<<<<< HEAD
-	public List<Bao> getListTheLoai(String theloai) {
-		
-		return template.query("select * from Bao where chuKyXuatBan='"+theloai+"'", new RowMapper<Bao>() {
-=======
+
 	public List<Bao> getListTheLoai(int theloai) {
 		
 		return template.query("select * from Bao where TheLoai="+theloai+"", new RowMapper<Bao>() {
->>>>>>> chinhsua
+
 			public Bao mapRow(ResultSet rs,int row) throws SQLException {
 				Bao b =new Bao();
 					b.setMaBao(rs.getNString(1));
@@ -66,18 +60,12 @@ public class BaoDAO {
 			}
 		});
 	}
-<<<<<<< HEAD
 
-	public Bao getBaoTheoMa(String maBao) {
-		// TODO Auto-generated method stub
-		String sql = "select * from Bao where MaBao=?";
-		return template.queryForObject(sql, new Object[]{maBao}, new BeanPropertyRowMapper<Bao>(Bao.class));
-=======
 	
 	public Bao getNameById(String maBao) {
 		String sql="select * from Bao where MaBao=?";
 		return template.queryForObject(sql, new Object[] {maBao}, new BeanPropertyRowMapper<Bao>(Bao.class));
->>>>>>> chinhsua
+
 	}
 }
 

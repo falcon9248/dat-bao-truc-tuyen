@@ -22,5 +22,5 @@
 		</p>
 		<p>Công ty hy vọng sẽ là địa chỉ đáng tin cậy của quý bạn đọc!</p>
 	</div>
-	</body>
+</body>
 </html>
